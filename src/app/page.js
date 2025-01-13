@@ -12,7 +12,6 @@ export default function Home() {
         <Input Label={"Username "} placeholder={"Your username"} />
         <Footer />
       </div>
-      <div className="second">{/* <Header /> */}</div>
     </div>
   );
 }

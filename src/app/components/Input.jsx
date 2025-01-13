@@ -1,23 +1,26 @@
-const Input = ({ label, placeholder, Label }) => {
-  const error = "true";
+const Input = ({ placeholder, Label, lastName, userName, firstName }) => {
+  const error = "";
+  // !lastName ? (error = true) : (error = null);
+  // !userName ? (error = true) : (error = null);
+  // !firstName ? (error = true) : (error = null);
+
   return (
-    <div>
-      <p className="pl-4">
-        {Label} <span className="text-red-500">*</span>
+    <div className="m-3 ">
+      <p className="pl-6">
+        {Label} <span className="text-red-600">*</span>
       </p>
       <input
+        value={lastName}
         placeholder={placeholder}
         type="text"
+        // onChange={(e) => lastName(e.target.value)}
         name=""
         id=""
-        className={`border-2 w-[416px] h-[68px] rounded-2xl outline-[#0CA5E9] flex m-3 pl-4 ${
-          error ? "focus:border-red-500" : "focus:border-green-500"
+        className={`border-2 w-[416px] h-[68px] border-gray-300 rounded-2xl outline-none flex m-auto pl-4 ${
+          error ? "focus:border-blue-500" : "focus:border-red-500"
         }`}
       />
-      <div className="error">{/* <p>Нэрээ оруулна уу</p> */}</div>
     </div>
   );
 };
 export default Input;
-
-//  className="border-2 w-[416px] h-[68px] rounded-2xl outline-[#0CA5E9] flex m-3 pl-4"
