@@ -1,6 +1,14 @@
 import { type } from "os";
 
-const Input = ({ placeholder, Label, lastName, type, userName, firstName }) => {
+const Input = ({
+  placeholder,
+  Label,
+  lastName,
+  type,
+  userName,
+  firstName,
+  handleClick,
+}) => {
   // const [error, setError] = useState("");
 
   // const error = "";
@@ -17,17 +25,11 @@ const Input = ({ placeholder, Label, lastName, type, userName, firstName }) => {
         value={lastName}
         placeholder={placeholder}
         type={type}
-        // onChange={(e) => lastName(e.target.value)}
+        onChange={handleClick}
         name=""
         id=""
         className={`border-2 w-[416px] h-[68px] border-gray-300 rounded-2xl outline-none flex m-auto pl-4`}
-        //   ${
-        //   error ? "focus:border-blue-500" : "focus:border-red-500"
-        // }
       />
-      {/* function error() {
-        setError = (!lastName ? (error = true))
-      } */}
     </div>
   );
 };

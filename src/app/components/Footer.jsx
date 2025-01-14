@@ -1,7 +1,15 @@
 const Footer = ({ onClick, currentStep }) => {
   return (
-    <div className="bg-[#121316]  m-auto w-[417px] h-[44px] rounded-lg border-blue-600 text-white  text-center mt-9 ">
-      <button onClick={onClick}>Continue {currentStep}/3</button>
+    <div className="m-auto  w-[417px] h-[44px] rounded-lg border-blue-600 text-white  text-center mt-9 ">
+      <button className="w-[128px] h-[44px] bg-white rounded-md border-2 text-black">
+        Back
+      </button>
+      <button
+        className="w-[280px] h-[44px] rounded-md bg-black"
+        onClick={onClick}
+      >
+        Continue {currentStep}/4
+      </button>
     </div>
   );
 };
