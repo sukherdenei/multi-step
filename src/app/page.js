@@ -11,7 +11,7 @@ export default function Home() {
   const [currentStep, setCurrentStep] = useState(0);
   const FormStep = [First, Second, Third, Allset][currentStep];
   return (
-    <div className="bg-[#F3F4F6] w-[100vw] h-[100vh]">
+    <div className="flex justify-center items-center  bg-[#F3F4F6] w-[100vw] h-[100vh]">
       <FormStep
         currentStep={currentStep}
         onClick={() => setCurrentStep(currentStep + 1)}

@@ -24,31 +24,56 @@ export default function First({ onClick, currentStep }) {
     setFormValues((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleClickChecker = () => {
+    let isValid = true;
+    const newErrors = { ...formErrors };
+
+    if (!formValues.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+      isValid = false;
+    }
+    if (!formValues.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
+      isValid = false;
+    }
+    if (!formValues.userName.trim()) {
+      newErrors.userName = "User name is required";
+      isValid = false;
+    }
+    setFormErrors(newErrors);
+    return isValid;
+  };
+
   const handleClick = () => {
-    const { firstName, lastName, userName } = formValues;
-    if (!firstName.trim()) {
-      setFormErrors((prev) => ({
-        ...prev,
-        firstName: "Please enter your first name",
-      }));
+    const isValid = handleClickChecker();
+    if (isValid) {
+      onClick();
     }
-    if (!lastName.trim()) {
-      setFormErrors((prev) => ({
-        ...prev,
-        lastName: "Please enter your last name",
-      }));
-    }
-    if (!userName.trim()) {
-      setFormErrors((prev) => ({
-        ...prev,
-        firstName: "Please enter your username",
-      }));
-    }
+    // const { firstName, lastName, userName } = formValues;
+    // if (!firstName.trim()) {
+    //   setFormErrors((prev) => ({
+    //     ...prev,
+    //     firstName: "Please enter your first name",
+    //   }));
+    // }
+    // if (!lastName.trim()) {
+    //   setFormErrors((prev) => ({
+    //     ...prev,
+    //     lastName: "Please enter your last name",
+    //   }));
+    // }
+    // if (!userName.trim()) {
+    //   setFormErrors((prev) => ({
+    //     ...prev,
+    //     userName: "Please enter your username",
+    //   }));
+    // }
+    // onClick;
   };
 
   return (
-    <div>
-      <div className="card w-[480px] h-[655px] bg-[#FFFFFF] m-auto border-2 rounded-2xl border-[#FFFFFF] ">
+    <div className="flex flex-col justify-between	card w-[480px] h-[655px] bg-[#FFFFFF] p-[32px] rounded-[8px]">
+      <div className=" border-2 rounded-2xl border-[#FFFFFF] ">
         <LogoAndHeader />
         <Input
           name="firstName"
@@ -72,7 +97,9 @@ export default function First({ onClick, currentStep }) {
           onChange={handleChange}
         />
         <p className="text-red-500 pl-7">{formErrors.userName}</p>
-        <Footer onClick={onClick} currentStep={currentStep + 1} />
+      </div>
+      <div>
+        <Footer onClick={handleClick} currentStep={currentStep + 1} />
       </div>
     </div>
   );

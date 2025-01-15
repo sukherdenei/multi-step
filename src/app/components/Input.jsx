@@ -5,9 +5,10 @@ const Input = ({
   Label,
   lastName,
   type,
+  name,
   userName,
   firstName,
-  handleClick,
+  onChange,
 }) => {
   // const [error, setError] = useState("");
 
@@ -17,18 +18,18 @@ const Input = ({
   // !firstName ? (error = true) : (error = null);
 
   return (
-    <div className="m-3 ">
-      <p className="pl-5">
+    <div className=" ">
+      <p className="">
         {Label} <span className="text-red-600">*</span>
       </p>
       <input
         value={lastName}
         placeholder={placeholder}
         type={type}
-        onChange={handleClick}
-        name=""
+        onChange={onChange}
+        name={name}
         id=""
-        className={`border-2 w-[416px] h-[68px] border-gray-300 rounded-2xl outline-none flex m-auto pl-4`}
+        className={`border-2 w-[416px] h-[44px] border-gray-300 rounded-[8px] outline-none flex m-auto pl-4`}
       />
     </div>
   );
